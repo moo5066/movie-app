@@ -1,7 +1,17 @@
 import { CiHeart } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
+import { getTrendingMovies } from "@/lib/tmdb";
 
-export default function Home() {
+export default async function Home() {
+
+const movies =await getTrendingMovies();
+
+
+
+
+
+
+
  return(
   <div className="bg-[#0F0F0F] text-white min-h-screen">
   <div className=" bg-[#49414118] p-5 border-b border-gray-500">
@@ -30,8 +40,21 @@ export default function Home() {
 
 <div className="mt-20">
   <h1 className="text-3xl m-30 font-bold">Trending This Week</h1>
-</div>
+  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 px-10">
+  {
+    movies.map((movie:any)=>(
+      <div key={movie.id} className="flex flex-col gap-2">
+<img 
+src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+alt={movie.title} className="w-full h-[300px] object-cover rounded-lg" />
+<p className="font-semibold">{movie.title}</p>
+<p className="text-yellow-400 text-sm">{movie.vote_average.toFixed(1)}</p>
 
+      </div>
+    ))
+  }
+</div>
+</div>
   </div>
  )
  
