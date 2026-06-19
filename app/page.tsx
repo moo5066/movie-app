@@ -1,12 +1,11 @@
+
 import { CiHeart } from "react-icons/ci";
-import { CiSearch } from "react-icons/ci";
 import { getTrendingMovies } from "@/lib/tmdb";
+import SearchBar from '@/components/SearchBar'
 
 export default async function Home() {
 
 const movies =await getTrendingMovies();
-
-
 
 
 
@@ -28,14 +27,8 @@ const movies =await getTrendingMovies();
   <h1 className="text-6xl font-bold">Discover Your Next Favorite Movie</h1>
   <p className="text-gray-400 text-xl">Search, explore, and save the best movies from around the world.</p>
 
+<SearchBar/>
 
-<div className="flex lg:w-[50%] w-[90%] flex-row gap-3 items-center mx-auto">
-  <input type="text" placeholder="Search for a movie..." className="w-full p-3 border border-gray-700 hover:border-red-500 rounded-lg  " />
-  <div className="flex flex-row items-center gap-2 font-semibold bg-red-600 cursor-pointer px-5 py-3 rounded-lg">
-    <CiSearch size={20}  />
-    <p>Search</p>
-</div>
-</div>
 </div>
 
 <div className="mt-20">
