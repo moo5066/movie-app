@@ -16,3 +16,9 @@ export async function searchMovies(query: string) {
   const data = await res.json();
   return data.results;
 }
+
+export async function getMovieDetails(id: string) {
+  const res = await fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`);
+  if (!res.ok) throw new Error("Failed to fetch movie");
+  return res.json();
+}

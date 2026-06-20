@@ -2,6 +2,7 @@
 import { CiHeart } from "react-icons/ci";
 import { getTrendingMovies } from "@/lib/tmdb";
 import SearchBar from '@/components/SearchBar'
+import Link from "next/link";
 
 export default async function Home() {
 
@@ -36,14 +37,14 @@ const movies =await getTrendingMovies();
   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 px-10">
   {
     movies.map((movie:any)=>(
-      <div key={movie.id} className="flex flex-col gap-2">
+        <Link key={movie.id} href={`/movie/${movie.id}`} className="flex flex-col gap-2">
 <img 
 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
 alt={movie.title} className="w-full h-[300px] object-cover rounded-lg" />
 <p className="font-semibold">{movie.title}</p>
 <p className="text-yellow-400 text-sm">{movie.vote_average.toFixed(1)}</p>
 
-      </div>
+      </Link>
     ))
   }
 </div>
