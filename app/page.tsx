@@ -17,10 +17,10 @@ const movies =await getTrendingMovies();
   <div className=" bg-[#49414118] p-5 border-b border-gray-500">
    <div className="flex lg:justify-around justify-between items-center">
     <h1 className="flex flex-row gap-1"><span className="bg-red-600 px-1.5  font-bold text-xl rounded-lg">M</span><span className="text-xl font-bold">MovieFlix</span></h1>
-    <div className="flex flex-row items-center gap-2 font-semibold hover:bg-[#67646418] cursor-pointer p-2 rounded-lg">
+    <Link href="/favorites" className="flex flex-row items-center gap-2 font-semibold hover:bg-[#67646418] cursor-pointer p-2 rounded-lg">
 <CiHeart size={25}/>
 <p>Favorites</p>
-    </div>
+    </Link>
    </div>
    </div>
 

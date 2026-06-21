@@ -1,5 +1,6 @@
 import { getMovieDetails } from "@/lib/tmdb";
 import Link from "next/link";
+import FavoriteButton from "@/components/FavoriteButton";
 
 export default async function MoviePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
@@ -40,19 +41,16 @@ export default async function MoviePage({ params }: { params: Promise<{ id: stri
 
 </div>
 
+<div className="flex flex-row gap-5 items-center ">
 <Link href="/" className="text-gray-400 absolute top-0 right-0 p-5 hover:text-white mb-5 inline-block">← Back</Link>
+<p className="text-white absolute center-0 m-5 left-0 p-5  mb-5 inline-block"><FavoriteButton movie={movie}/></p>
+</div>
+
+
+
   </div>
 
   )
   
-  
-
-
-
-
-
-
-
-
 }
  
